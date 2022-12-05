@@ -9,6 +9,6 @@ public class ShortGenerator : IValueGenerator
 
     public object Generate(Type typeToGenerate, GeneratorContext context)
     {
-        return context.Random.Next(short.MinValue, short.MaxValue);
+        return (short)context.Random.Next(short.MinValue, short.MaxValue);
     }
 }
