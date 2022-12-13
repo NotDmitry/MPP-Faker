@@ -11,6 +11,6 @@ public class DecimalGenerator : IValueGenerator
     // Generate random decimal
     public object Generate(Type typeToGenerate, GeneratorContext context)
     {
-        return context.Random.Next(int.MinValue, int.MaxValue);
+        return (decimal)context.Random.Next(int.MinValue, int.MaxValue);
     }
 }

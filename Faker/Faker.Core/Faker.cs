@@ -10,7 +10,7 @@ public class Faker : IFaker
     private readonly GeneratorContext _context;
     private readonly NestedClassGuard _classGuard;
 
-    Faker()
+    public Faker()
     {
         _valueGenerators = new List<IValueGenerator> {new BoolGenerator(), new ByteGenerator(),
             new CharGenerator(), new DecimalGenerator(), new DoubleGenerator(), new FloatGenerator(),
