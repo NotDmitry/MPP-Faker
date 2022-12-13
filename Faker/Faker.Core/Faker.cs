@@ -22,6 +22,8 @@ public class Faker : IFaker
 
     public object Create(Type t)
     {
+        var valueGenerator = _valueGenerators.FirstOrDefault(g => g.CanGenerate(t), new ObjectGenerator());
+        return valueGenerator.Generate(t, _context);
         
     }
 }
