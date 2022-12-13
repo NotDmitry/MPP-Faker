@@ -15,8 +15,10 @@ public class ObjectGenerator : IValueGenerator
         return target;
     }
 
+    // Try to create object using ctors or using default
     public object InvokeCtors(Type typeToGenerate, GeneratorContext context)
     {
+        // Sort ctors in descending order by parameter count
         var constructors = typeToGenerate.GetConstructors()
             .OrderByDescending(ctor => ctor.GetParameters().Length).ToList();
 

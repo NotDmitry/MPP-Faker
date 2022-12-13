@@ -6,8 +6,10 @@ namespace Faker.Core.TypeGenerators;
 
 public class ListGenerator : IValueGenerator
 {
+    // Check if list generation available
     public bool CanGenerate(Type type) => type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
 
+    // Create generic list from its type with random length
     public object Generate(Type typeToGenerate, GeneratorContext context)
     {
         int length = context.Random.Next(2, 9);

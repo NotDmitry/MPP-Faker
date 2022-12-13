@@ -29,10 +29,11 @@ public class Faker : IFaker
             return null;
 
         var valueGenerator = _valueGenerators.FirstOrDefault(g => g.CanGenerate(t), new ObjectGenerator());
+        var target = valueGenerator.Generate(t, _context);
 
         _classGuard.ChangeOccurance(t, NestedClassGuard.Operation.Delete);
 
-        return valueGenerator.Generate(t, _context);
+        return target;
         
     }
 }

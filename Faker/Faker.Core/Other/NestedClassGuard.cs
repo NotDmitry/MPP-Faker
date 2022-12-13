@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Faker.Core.Other;
+﻿namespace Faker.Core.Other;
 
 public class NestedClassGuard
 {
+	// Max level of nesting
 	private int _maxLevel;
+
 	private Dictionary<Type, int> _nestedClasses;
 	public enum Operation
 	{
@@ -22,6 +18,7 @@ public class NestedClassGuard
 		_maxLevel = maxLevel;
 	}
 
+	// Add/update occurance count or decrease
 	public void ChangeOccurance(Type type, Operation op)
 	{
 		switch (op)
@@ -43,6 +40,7 @@ public class NestedClassGuard
 
 	}
 
+	// Check if max nesting level was reached
     public bool IsStuck(Type type) => _nestedClasses[type] > _maxLevel;
 
 }
